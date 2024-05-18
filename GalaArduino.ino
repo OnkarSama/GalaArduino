@@ -12,12 +12,15 @@
 #define cyan 1
 #define magenta 0
 
+#define SETTLE  5000
+
 int topSensorStateH = 0;
 int topSensorStateV = 0;
 int middleSensorStateH = 0;
 int middleSensorStateV = 0;
 int bottomSensorStateH = 0;
 int bottomSensorStateV = 0;
+int settle = 0 ;
 
 void setup() {
   
@@ -57,8 +60,13 @@ void loop(){
   bottomSensorStateH = digitalRead(bottomSensorPinH);
   bottomSensorStateV = digitalRead(bottomSensorPinV);
 
+  if ( settle && settle -- ) {
+    return ;
+  }
+
   if (topSensorStateH == LOW || topSensorStateV == LOW) {
     digitalWrite(topRelay, cyan);
+    settle = SETTLE ;
     //delay(3000);
   } else {
     digitalWrite(topRelay, magenta);
@@ -66,6 +74,7 @@ void loop(){
 
   if (middleSensorStateH == LOW || middleSensorStateV == LOW) {
     digitalWrite(middleRelay, cyan);
+    settle = SETTLE ;
     //delay(3000);
   } else {
     digitalWrite(middleRelay, magenta);
@@ -73,6 +82,7 @@ void loop(){
 
   if (bottomSensorStateH == LOW || bottomSensorStateV == LOW) {
     digitalWrite(bottomRelay, cyan);
+    settle = SETTLE ;
     //delay(3000);
   } else {
     digitalWrite(bottomRelay, magenta);
