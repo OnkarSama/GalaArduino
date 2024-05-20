@@ -67,7 +67,7 @@ void loop(){
   if (topSensorStateH == LOW || topSensorStateV == LOW) {
     digitalWrite(topRelay, cyan);
     settle = SETTLE ;
-    //delay(3000);
+    delay(3000);
   } else {
     digitalWrite(topRelay, magenta);
   }
@@ -75,7 +75,7 @@ void loop(){
   if (middleSensorStateH == LOW || middleSensorStateV == LOW) {
     digitalWrite(middleRelay, cyan);
     settle = SETTLE ;
-    //delay(3000);
+    delay(3000);
   } else {
     digitalWrite(middleRelay, magenta);
   }
@@ -83,7 +83,7 @@ void loop(){
   if (bottomSensorStateH == LOW || bottomSensorStateV == LOW) {
     digitalWrite(bottomRelay, cyan);
     settle = SETTLE ;
-    //delay(3000);
+    delay(3000);
   } else {
     digitalWrite(bottomRelay, magenta);
   }
